@@ -1567,7 +1567,7 @@ input[type="tel"] {
     margin-left: 530px; } }
 @media all and (max-width: 1100px) {
   .panel-cover__logo {
-    width: 270px; }
+    width: 270px !important; }
 
   .panel-title {
     font-size: 2em; }
