@@ -1,1 +1,246 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Brewmaster's Guide to the Internet]]></title><description><![CDATA[A lover of beer, a programmer, a lawyer. A father.  A husband. Some dude on the Internet.]]></description><link>http://brewmaster.tech</link><generator>RSS for Node</generator><lastBuildDate>Wed, 27 Sep 2017 21:27:10 GMT</lastBuildDate><atom:link href="http://brewmaster.tech/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[My new development stack using Python, GraphQL and Neo4j]]></title><link>http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html</link><guid isPermaLink="true">http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html</guid><dc:creator><![CDATA[Adam Hopkins]]></dc:creator><pubDate>Thu, 28 Sep 2017 00:00:00 GMT</pubDate></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Brewmaster's Guide to the Internet]]></title><description><![CDATA[A lover of beer, a programmer, a lawyer. A father.  A husband. Some dude on the Internet.]]></description><link>http://brewmaster.tech</link><image><url>https://github.com/ahopkins/brewmaster.tech/blob/master/images/cask.jpg?raw=true</url><title>The Brewmaster&apos;s Guide to the Internet</title><link>http://brewmaster.tech</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 27 Sep 2017 22:16:25 GMT</lastBuildDate><atom:link href="http://brewmaster.tech/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[My new development stack using Python, GraphQL and Neo4j]]></title><description><![CDATA[<div class="paragraph">
+<p>Okay, let&#8217;s sit down to create a new game.
+Step 1. Open text editor.</p>
+</div>
+<div class="paragraph">
+<p>Hmm &#8230;&#8203; Geez, maybe I should break out of my shell and try something new.</p>
+</div>
+<div class="paragraph">
+<p>I have developed MANY applications of all sorts of shapes and sizes using the Django Framework. I am a huge supporter of it from the early days, and strongly believe it still has a long future.</p>
+</div>
+<div class="paragraph">
+<p>But, what about all these new things out there? Sure, I can jam things into Django, or even replace the ORM with something else. I even had started working on a package to bring Elasticsearch into the Django model manager.</p>
+</div>
+<div class="paragraph">
+<p>This time, I want something different. Let&#8217;s start by adding GraphQL to the stack.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My Stack
+========
+[] GraphQL</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>How am I going to interface with the specification inside Python? Ahh, I found graphene. What an amazing package.</p>
+</div>
+<div class="paragraph">
+<p>Basically, you create a schema that looks very much like any ORM: a series of classes with fields that map to attributes. This raises a problem though.</p>
+</div>
+<div class="paragraph">
+<p>You see, when developing my <code>elasticmanager</code> package, I initially grabbed the existing Django ORM models and looped over them to generate a schema that fit inside <code>elasticsearch_dsl</code>. The problem was that this did not give me enough flexibility. So, I took that out and created two sets of schemas: Django models, and elasticsearch datatypes. Once I added Django REST Framework into the mix, I now had a third schema. I want to avoid this problem on this project.</p>
+</div>
+<div class="paragraph">
+<p>So, I need to be able to have one defined schema, and that will be graphene.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My Stack
+========
+[] GraphQL
+[] Graphene</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Well, what about database you say? I thought about Postgres (my typical go to). Seeing how this is a side project and I am already taking on new technologies, maybe I should see what else is out there that I don&#8217;t know.</p>
+</div>
+<div class="paragraph">
+<p>Enter Neo4j.</p>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>How am I going to interact with it? There is a really neat package that looks EXACTLY like Django ORM: neomodel. That certainly would be an easy transition, and I can already tell how I would interact with it. It does seem like a little bit of a cop out though.</p>
+</div>
+<div class="paragraph">
+<p>One of the amazing things about Neo4j is this new query language they created called cypher. Do I abstract that away with neomodel? Or, take it head on and learn it.</p>
+</div>
+<div class="paragraph">
+<p>Again, this is a side project, what do you think the answer is?</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My Stack
+========
+[] GraphQL
+[] Graphene
+[] Neo4j</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now my backend is starting to shape up. I am still missing, however, the key component to bind it altogether. I already decided to NOT build with Django. I suppose Flask, Bottle, or Pyramid.</p>
+</div>
+<div class="paragraph">
+<p>Hmm &#8230;&#8203; thinking about the frontend though, I REALLY want to have a tightly coupled chat application and live streaming data. It really seems like something meant for WebSockets.</p>
+</div>
+<div class="paragraph">
+<p>Since Django is out, that means the awesome Django Channels (my typical WebSockets interface) is out. What next?</p>
+</div>
+<div class="paragraph">
+<p>Tom <em>_</em> of DRF fame has been working on a new API project called apistar. It does not currently handle the sort of connections I am looking for, but he also worked on a project called uvicorn. That looks promising.</p>
+</div>
+<div class="paragraph">
+<p>And, there are a few frameworks I hear about utilizing asyncio, namely <em>__</em> and Sanic.</p>
+</div>
+<div class="paragraph">
+<p>Ooo, someone made a connection for Sanic with GraphQL. With one line of code I can hook up GraphQL and Grapehen. And it handles both HTTP and WebSockets. I&#8217;m sold.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My Stack
+========
+[] GraphQL
+[] Graphene
+[] Neo4j
+[] Sanic
+    - HTTP
+    - WebSocket</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now &#8230;&#8203; I just need to hook this all up. That was surprisingly easy. Here is how I did it.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>from sanic import Sanic
+from sanic.response import text
+from aoiklivereload import LiveReloader
+from graphene import ObjectType, List, Schema, String, Field, AbstractType
+from sanic_graphql import GraphQLView
+from neo4j.v1 import GraphDatabase</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>import copy</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>reloader = LiveReloader()
+reloader.start_watcher_thread()</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>uri = "bolt://localhost:7687"
+driver = GraphDatabase.driver(uri, auth=("neo4j", "&lt;PASSWORD&gt;"))</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>def query(cypher, **kwargs):
+    with driver.session() as session:
+        with session.begin_transaction() as tx:
+            return tx.run(cypher, **kwargs)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>league_attributes = {
+    'abbreviation': String(),
+    'name': String(),
+}</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>class LeagueAbstract(AbstractType):
+    def resolve_name(self, args, context, info):
+        return self['l'].get('name')</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>def resolve_abbreviation(self, args, context, info):
+    return self['l'].get('abbreviation')</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>League = type('League', (LeagueAbstract, ObjectType), copy.deepcopy(league_attributes))</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>class Query(ObjectType):
+    leagues = List(League, copy.deepcopy(league_attributes))
+    league = Field(League, copy.deepcopy(league_attributes))</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>def resolve_leagues(self, args, context, info):
+    abbreviation = args.get('abbreviation', None)
+    abbr = 'WHERE l.abbreviation={abbreviation}' if abbreviation is not None else ''
+    cypher = f'MATCH (l:League) {abbr} RETURN l;'
+    records = query(cypher, abbreviation=abbreviation)
+    return records</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>def resolve_league(self, args, context, info):
+    abbreviation = args.get('abbreviation')
+    cypher = 'MATCH (l:League) WHERE l.abbreviation={abbreviation} RETURN l;'
+    records = query(cypher, abbreviation=abbreviation)
+    return records.single()</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>schema = Schema(query=Query)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>app = Sanic(__name__)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>app.add_route(GraphQLView.as_view(schema=schema, graphiql=True), '/')</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>app.run(host="127.0.0.1", port=8000, debug=True)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is my proof of concept. Clearly this script needs to be cleaned up and abstracted away into modules.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s step through and see what each component is doing.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>And, of course before it can work, we need to install everything. Here are the steps I took:
+
+
+                 ▄▄▄▄▄
+        ▀▀▀██████▄▄▄       _______________
+      ▄▄▄▄▄  █████████▄  /                 \
+     ▀▀▀▀█████▌ ▀▐▄ ▀▐█ |   Gotta go fast!  |
+   ▀▀█████▄▄ ▀██████▄██ | _________________/
+   ▀▄▄▄▄▄  ▀▀█▄▀█════█▀ |/
+        ▀▀▀▄  ▀▀███ ▀       ▄▄
+     ▄███▀▀██▄████████▄ ▄▀▀▀▀▀▀█▌
+   ██▀▄▄▄██▀▄███▀ ▀▀████      ▄██
+▄▀▀▀▄██▄▀▀▌████▒▒▒▒▒▒███     ▌▄▄▀
+▌    ▐▀████▐███▒▒▒▒▒▐██▌
+▀▄▄▄▄▀   ▀▀████▒▒▒▒▄██▀
+          ▀▀█████████▀
+        ▄▄██▀██████▀█
+      ▄██▀     ▀▀▀  █
+     ▄█             ▐▌
+ ▄▄▄▄█▌              ▀█▄▄▄▄▀▀▄
+▌     ▐                ▀▀▄▄▄▀
+ ▀▀▄▄▀
+
+
+
+photo credit: wizzer2801 http://www.flickr.com/photos/61209873@N00/5357865167[Classic IBM PC Full] via http://photopin.com[photopin] https://creativecommons.org/licenses/by-nc-nd/2.0/[license]</pre>
+</div>
+</div>]]></description><link>http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html</link><guid isPermaLink="true">http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html</guid><dc:creator><![CDATA[Adam Hopkins]]></dc:creator><pubDate>Thu, 28 Sep 2017 00:00:00 GMT</pubDate></item></channel></rss>
