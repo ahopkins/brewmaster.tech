@@ -4,7 +4,7 @@
 // :hp-tags: HubPress, Blog, Open_Source,
 // :hp-alt-title: My English Title
 = My new development stack using Python, GraphQL and Neo4j
-:hp-image: http://github.com/ahopkins/brewmaster.tech/images/old_computer.jpg
+:hp-image: https://raw.githubusercontent.com/ahopkins/brewmaster.tech/master/images/old_computer.jpg
 
 Okay, let's sit down to create a new game.
 Step 1. Open text editor.
