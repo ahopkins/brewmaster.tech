@@ -6,7 +6,7 @@
     "cname": "brewmaster.tech"
   },
   "theme": {
-    "name": "uno"
+    "name": "uno-brewmaster"
   },
   "urls": {
     "site": "http://brewmaster.tech",
@@ -32,8 +32,8 @@
     "cover": "https://github.com/ahopkins/brewmaster.tech/blob/master/images/cask.jpg?raw=true",
     "delay": "",
     "postsPerPage": "",
-    "googleAnalytics": "",
-    "disqus": ""
+    "googleAnalytics": "UA-56325740-2",
+    "disqus": "brewmastertech"
   },
   "socialnetwork": {
     "email": "",
