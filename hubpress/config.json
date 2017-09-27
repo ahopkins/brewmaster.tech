@@ -11,7 +11,7 @@
   "urls": {
     "site": "http://brewmaster.tech",
     "hubpress": "https://brewmaster.tech",
-    "theme": "//brewmaster.tech/themes/saga",
+    "theme": "//brewmaster.tech/themes/uno",
     "images": "http://brewmaster.tech/images"
   },
   "initialisationConfigComponent": {
@@ -28,8 +28,8 @@
   "site": {
     "title": "The Brewmaster's Guide to the Internet",
     "description": "A lover of beer, a programmer, a lawyer. A father.  A husband. Some dude on the Internet.",
-    "logo": "",
-    "cover": "",
+    "logo": "https://github.com/ahopkins/brewmaster.tech/blob/master/images/logo/logo.png",
+    "cover": "https://github.com/ahopkins/brewmaster.tech/blob/master/images/cask.jpg",
     "delay": "",
     "postsPerPage": "",
     "googleAnalytics": "",
