@@ -1621,7 +1621,7 @@ input[type="tel"] {
         display: block;
         padding: 70px 0 30px 0; }
       .panel-cover.panel-cover--collapsed .panel-cover__logo {
-        width: 360px !important;
+        width: 260px !important;
         border-width: 2px; }
       .panel-cover.panel-cover--collapsed .panel-cover__description {
         display: none; }
