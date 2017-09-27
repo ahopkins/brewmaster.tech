@@ -11,7 +11,7 @@
   "urls": {
     "site": "http://brewmaster.tech",
     "hubpress": "https://brewmaster.tech",
-    "theme": "//brewmaster.tech/themes/uno",
+    "theme": "//brewmaster.tech/themes/uno-brewmaster",
     "images": "http://brewmaster.tech/images"
   },
   "initialisationConfigComponent": {
@@ -36,8 +36,8 @@
     "disqus": "brewmastertech"
   },
   "socialnetwork": {
-    "email": "",
-    "github": "",
+    "email": "admhpkns@gmail.com",
+    "github": "https://github.com/ahopkins",
     "twitter": "",
     "facebook": "",
     "googleplus": "",
@@ -45,6 +45,6 @@
     "pinterest": "",
     "flickr": "",
     "linkedin": "",
-    "stackoverflow": ""
+    "stackoverflow": "https://stackoverflow.com/users/1036843/the-brewmaster"
   }
 }
