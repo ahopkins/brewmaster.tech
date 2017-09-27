@@ -5,9 +5,9 @@
     <div class="panel-main__content">
 
         {{#if @blog.logo}}
-        <a href="{{@blog.url}}" title="link to homepage for {{@blog.title}}"><img src="{{@blog.logo}}" alt="{{@blog.title}} logo" class="panel-cover__logo logo" /></a>
+        <a href="{{@blog.url}}/#blog" title="link to homepage for {{@blog.title}}"><img src="{{@blog.logo}}" alt="{{@blog.title}} logo" class="panel-cover__logo logo" /></a>
         {{/if}}
-        <h1 class="panel-cover__title panel-title">by, <a href="{{@blog.url}}" title="link to homepage for {{@blog.title}}">Adam Hopkins</a></h1>
+        <h1 class="panel-cover__title panel-title">by, <a href="{{@blog.url}}/#blog" title="link to homepage for {{@blog.title}}">Adam Hopkins</a></h1>
         {{!-- <span class="panel-cover__subtitle panel-subtitle">Visual Designer</span> --}}
         <hr class="panel-cover__divider" />
         <p class="panel-cover__description">{{@blog.description}}</p>
