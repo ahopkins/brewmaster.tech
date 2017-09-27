@@ -6,12 +6,12 @@
     "cname": "brewmaster.tech"
   },
   "theme": {
-    "name": "saga"
+    "name": "uno"
   },
   "urls": {
     "site": "http://brewmaster.tech",
     "hubpress": "https://brewmaster.tech",
-    "theme": "//brewmaster.tech/themes/casper",
+    "theme": "//brewmaster.tech/themes/saga",
     "images": "http://brewmaster.tech/images"
   },
   "initialisationConfigComponent": {
