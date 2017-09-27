@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="142.06696mm"
+   height="142.06696mm"
+   viewBox="0 0 503.38682 503.38683"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="favicon.svg"
+   inkscape:export-filename="/home/adam/Projects/brewmasterblog/brewmaster/brewmaster/static/img/apple-touch-icon-57x57-precomposed.png"
+   inkscape:export-xdpi="10.190969"
+   inkscape:export-ydpi="10.190969">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#242424"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="1269.1116"
+     inkscape:cy="210.20646"
+     inkscape:document-units="px"
+     inkscape:current-layer="text3819"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1021"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="20"
+     fit-margin-left="20"
+     fit-margin-right="20"
+     fit-margin-bottom="20" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(2956.3548,-402.03897)">
+    <g
+       style="font-style:normal;font-weight:normal;font-size:97.41536713px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text3819">
+      <rect
+         style="fill:#242424;fill-opacity:1"
+         id="rect3486"
+         width="942.85712"
+         height="805.71429"
+         x="-3222.0691"
+         y="231.14012" />
+      <path
+         d="m -2809.4358,472.9051 0,361.65454 105.647,0 c 56.988,0 100.3865,-41.2067 100.3865,-100.8249 14.4662,-58.3031 -17.5347,-83.29014 -62.6867,-91.18078 30.6858,-15.78129 45.152,-44.27528 45.152,-77.59134 0,-68.82395 -49.0974,-92.05752 -93.3726,-92.05752 l -95.1262,0 z m 82.4134,141.59323 0,-78.0297 3.0686,0 c 14.9046,0 23.2336,10.95923 23.2336,36.823 0,30.24748 -8.329,41.2067 -23.2336,41.2067 l -3.0686,0 z m 0,156.49779 0,-85.48199 10.9593,0 c 18.8498,0 25.8638,11.83597 25.8638,45.15203 0,28.49399 -9.2058,40.32996 -25.8638,40.32996 l -10.9593,0 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:438.36914062px;font-family:Blink;-inkscape-font-specification:Blink;fill:#b3b3b3"
+         id="path3386"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text3462" />
+    <g
+       style="font-style:normal;font-weight:normal;font-size:180px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text3466" />
+  </g>
+</svg>
