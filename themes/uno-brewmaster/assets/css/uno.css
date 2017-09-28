@@ -1237,6 +1237,7 @@ hr {
 .panel-cover__logo {
   margin-bottom: .2em;
   width: 540px; }
+.panel-cover__logo.collapsed,
 .panel-cover.panel-cover--collapsed .panel-cover__logo {
   width: 260px; }
 
