@@ -25,7 +25,7 @@
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
 
-    <link rel="stylesheet" type="text/css" href="//brewmaster.tech/themes/uno-brewmaster/assets/css/uno.css?v=1506581562910" />
+    <link rel="stylesheet" type="text/css" href="//brewmaster.tech/themes/uno-brewmaster/assets/css/uno.css?v=1506581755173" />
 
     <link rel="canonical" href="http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html" />
     <meta name="referrer" content="origin" />
@@ -276,104 +276,68 @@
 <div class="paragraph">
 <p>Now &#8230;&#8203; I just need to hook this all up. That was surprisingly easy. Here is how I did it.</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>from sanic import Sanic
+<pre class="highlight"><code class="language-python" data-lang="python">from sanic import Sanic
 from sanic.response import text
 from graphene import ObjectType, List, Schema, String, Field, AbstractType
 from sanic_graphql import GraphQLView
-from neo4j.v1 import GraphDatabase</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>import copy</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>uri = "bolt://localhost:7687"
-driver = GraphDatabase.driver(uri, auth=("neo4j", "&lt;PASSWORD&gt;"))</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>def query(cypher, **kwargs):
+from neo4j.v1 import GraphDatabase
+
+import copy
+
+uri = "bolt://localhost:7687"
+driver = GraphDatabase.driver(uri, auth=("neo4j", "&lt;PASSWORD&gt;"))
+
+
+def query(cypher, **kwargs):
     with driver.session() as session:
         with session.begin_transaction() as tx:
-            return tx.run(cypher, **kwargs)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>league_attributes = {
+            return tx.run(cypher, **kwargs)
+
+
+league_attributes = {
     'abbreviation': String(),
     'name': String(),
-}</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>class LeagueAbstract(AbstractType):
+}
+
+
+class LeagueAbstract(AbstractType):
     def resolve_name(self, args, context, info):
-        return self['l'].get('name')</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>def resolve_abbreviation(self, args, context, info):
-    return self['l'].get('abbreviation')</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>League = type('League', (LeagueAbstract, ObjectType), copy.deepcopy(league_attributes))</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>class Query(ObjectType):
+        return self['l'].get('name')
+
+    def resolve_abbreviation(self, args, context, info):
+        return self['l'].get('abbreviation')
+
+
+League = type('League', (LeagueAbstract, ObjectType), copy.deepcopy(league_attributes))
+
+
+class Query(ObjectType):
     leagues = List(League, copy.deepcopy(league_attributes))
-    league = Field(League, copy.deepcopy(league_attributes))</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>def resolve_leagues(self, args, context, info):
-    abbreviation = args.get('abbreviation', None)
-    abbr = 'WHERE l.abbreviation={abbreviation}' if abbreviation is not None else ''
-    cypher = f'MATCH (l:League) {abbr} RETURN l;'
-    records = query(cypher, abbreviation=abbreviation)
-    return records</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>def resolve_league(self, args, context, info):
-    abbreviation = args.get('abbreviation')
-    cypher = 'MATCH (l:League) WHERE l.abbreviation={abbreviation} RETURN l;'
-    records = query(cypher, abbreviation=abbreviation)
-    return records.single()</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>schema = Schema(query=Query)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>app = Sanic(__name__)</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>app.add_route(GraphQLView.as_view(schema=schema, graphiql=True), '/')</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>app.run(host="127.0.0.1", port=8000, debug=True)</pre>
+    league = Field(League, copy.deepcopy(league_attributes))
+
+    def resolve_leagues(self, args, context, info):
+        abbreviation = args.get('abbreviation', None)
+        abbr = 'WHERE l.abbreviation={abbreviation}' if abbreviation is not None else ''
+        cypher = f'MATCH (l:League) {abbr} RETURN l;'
+        records = query(cypher, abbreviation=abbreviation)
+        return records
+
+    def resolve_league(self, args, context, info):
+        abbreviation = args.get('abbreviation')
+        cypher = 'MATCH (l:League) WHERE l.abbreviation={abbreviation} RETURN l;'
+        records = query(cypher, abbreviation=abbreviation)
+        return records.single()
+
+
+schema = Schema(query=Query)
+
+app = Sanic(__name__)
+
+app.add_route(GraphQLView.as_view(schema=schema, graphiql=True), '/')
+
+app.run(host="127.0.0.1", port=8000, debug=True)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -455,7 +419,7 @@ driver = GraphDatabase.driver(uri, auth=("neo4j", "&lt;PASSWORD&gt;"))</pre>
         hljs.initHighlightingOnLoad();
       </script>
 
-    <script type="text/javascript" src="//brewmaster.tech/themes/uno-brewmaster/assets/js/main.js?v=1506581562910"></script>
+    <script type="text/javascript" src="//brewmaster.tech/themes/uno-brewmaster/assets/js/main.js?v=1506581755173"></script>
     
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
