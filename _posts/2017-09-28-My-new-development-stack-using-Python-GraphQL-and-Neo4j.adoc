@@ -151,7 +151,7 @@ app.run(host="127.0.0.1", port=8000, debug=True)
 
 This is my proof of concept. Clearly this script needs to be cleaned up and abstracted away into modules.
 
-But, the point of the matter is that when taking on a side project. Step out of the comfort zone and grab a whole bunch of new tools. Because, in doing so, I have been inspired to https://github.com/ahopkins/asynccli[to build] https://github.com/ahopkins/sanic-jwt[several] https://github.com/ahopkins/merkava[new tools]. All three of those mini side projects has been fun. And I would have built none of them if I had stayed inside the lines.
+But, the point of the matter is that when taking on a side project. Step out of the comfort zone and grab a whole bunch of new tools. Because, in doing so, I have been inspired to https://github.com/ahopkins/asynccli[to build] https://github.com/ahopkins/sanic-jwt[several] https://github.com/ahopkins/merkava[new tools]. All three of those mini side projects have been fun. And I would have built none of them if I had stayed inside the lines.
 
 Go ahead. Build something new.
 
