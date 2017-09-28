@@ -11,17 +11,16 @@ $(document).ready(function() {
     } else {
       $('.panel-cover').css('max-width',currentWidth);
       $('.panel-cover').animate({'max-width': '530px', 'width': '40%'}, 400, swing = 'swing', function() {} );
+    $('.panel-cover__logo').addClass('collapsed');
     }
   });
 
   if (window.location.hash && window.location.hash == "#blog") {
     $('.panel-cover').addClass('panel-cover--collapsed');
-    $('.panel-cover__logo').addClass('collapsed');
   }
 
   if (window.location.pathname.substring(0, 5) == "/tag/") {
     $('.panel-cover').addClass('panel-cover--collapsed');
-    $('.panel-cover__logo').addClass('collapsed');
   }
 
   $('.btn-mobile-menu').click(function() {
