@@ -10,7 +10,7 @@
   },
   "urls": {
     "site": "http://brewmaster.tech",
-    "hubpress": "https://brewmaster.tech",
+    "hubpress": "http://brewmaster.tech",
     "theme": "//brewmaster.tech/themes/uno-brewmaster",
     "images": "http://brewmaster.tech/images"
   },
