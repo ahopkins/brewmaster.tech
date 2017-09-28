@@ -16,10 +16,12 @@ $(document).ready(function() {
 
   if (window.location.hash && window.location.hash == "#blog") {
     $('.panel-cover').addClass('panel-cover--collapsed');
+    $('.panel-cover__logo').addClass('collapsed');
   }
 
   if (window.location.pathname.substring(0, 5) == "/tag/") {
     $('.panel-cover').addClass('panel-cover--collapsed');
+    $('.panel-cover__logo').addClass('collapsed');
   }
 
   $('.btn-mobile-menu').click(function() {
