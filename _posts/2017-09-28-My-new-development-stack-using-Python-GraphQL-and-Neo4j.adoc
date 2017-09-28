@@ -83,66 +83,69 @@ And it handles both HTTP and WebSockets. I'm sold.
 
 Now ... I just need to hook this all up. That was surprisingly easy. Here is how I did it.
 
-    from sanic import Sanic
-    from sanic.response import text
-    from graphene import ObjectType, List, Schema, String, Field, AbstractType
-    from sanic_graphql import GraphQLView
-    from neo4j.v1 import GraphDatabase
+[source,python]
+----
+from sanic import Sanic
+from sanic.response import text
+from graphene import ObjectType, List, Schema, String, Field, AbstractType
+from sanic_graphql import GraphQLView
+from neo4j.v1 import GraphDatabase
 
-    import copy
+import copy
 
-    uri = "bolt://localhost:7687"
-    driver = GraphDatabase.driver(uri, auth=("neo4j", "<PASSWORD>"))
-
-
-    def query(cypher, **kwargs):
-        with driver.session() as session:
-            with session.begin_transaction() as tx:
-                return tx.run(cypher, **kwargs)
+uri = "bolt://localhost:7687"
+driver = GraphDatabase.driver(uri, auth=("neo4j", "<PASSWORD>"))
 
 
-    league_attributes = {
-        'abbreviation': String(),
-        'name': String(),
-    }
+def query(cypher, **kwargs):
+    with driver.session() as session:
+        with session.begin_transaction() as tx:
+            return tx.run(cypher, **kwargs)
 
 
-    class LeagueAbstract(AbstractType):
-        def resolve_name(self, args, context, info):
-            return self['l'].get('name')
-
-        def resolve_abbreviation(self, args, context, info):
-            return self['l'].get('abbreviation')
+league_attributes = {
+    'abbreviation': String(),
+    'name': String(),
+}
 
 
-    League = type('League', (LeagueAbstract, ObjectType), copy.deepcopy(league_attributes))
+class LeagueAbstract(AbstractType):
+    def resolve_name(self, args, context, info):
+        return self['l'].get('name')
+
+    def resolve_abbreviation(self, args, context, info):
+        return self['l'].get('abbreviation')
 
 
-    class Query(ObjectType):
-        leagues = List(League, copy.deepcopy(league_attributes))
-        league = Field(League, copy.deepcopy(league_attributes))
-
-        def resolve_leagues(self, args, context, info):
-            abbreviation = args.get('abbreviation', None)
-            abbr = 'WHERE l.abbreviation={abbreviation}' if abbreviation is not None else ''
-            cypher = f'MATCH (l:League) {abbr} RETURN l;'
-            records = query(cypher, abbreviation=abbreviation)
-            return records
-
-        def resolve_league(self, args, context, info):
-            abbreviation = args.get('abbreviation')
-            cypher = 'MATCH (l:League) WHERE l.abbreviation={abbreviation} RETURN l;'
-            records = query(cypher, abbreviation=abbreviation)
-            return records.single()
+League = type('League', (LeagueAbstract, ObjectType), copy.deepcopy(league_attributes))
 
 
-    schema = Schema(query=Query)
+class Query(ObjectType):
+    leagues = List(League, copy.deepcopy(league_attributes))
+    league = Field(League, copy.deepcopy(league_attributes))
 
-    app = Sanic(__name__)
+    def resolve_leagues(self, args, context, info):
+        abbreviation = args.get('abbreviation', None)
+        abbr = 'WHERE l.abbreviation={abbreviation}' if abbreviation is not None else ''
+        cypher = f'MATCH (l:League) {abbr} RETURN l;'
+        records = query(cypher, abbreviation=abbreviation)
+        return records
 
-    app.add_route(GraphQLView.as_view(schema=schema, graphiql=True), '/')
+    def resolve_league(self, args, context, info):
+        abbreviation = args.get('abbreviation')
+        cypher = 'MATCH (l:League) WHERE l.abbreviation={abbreviation} RETURN l;'
+        records = query(cypher, abbreviation=abbreviation)
+        return records.single()
 
-    app.run(host="127.0.0.1", port=8000, debug=True)
+
+schema = Schema(query=Query)
+
+app = Sanic(__name__)
+
+app.add_route(GraphQLView.as_view(schema=schema, graphiql=True), '/')
+
+app.run(host="127.0.0.1", port=8000, debug=True)
+----
 
 This is my proof of concept. Clearly this script needs to be cleaned up and abstracted away into modules.
 
