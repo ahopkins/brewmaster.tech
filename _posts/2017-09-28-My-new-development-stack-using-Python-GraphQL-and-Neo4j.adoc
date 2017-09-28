@@ -67,8 +67,10 @@ And, there are a few frameworks I hear about utilizing asyncio, namely and http:
 
 Ooo, someone made a connection for https://github.com/graphql-python/sanic-graphql[Sanic with GraphQL]. With one line of code I can hook up GraphQL and Grapehne. 
 
-	app.add_route(GraphQLView.as_view(schema=Schema, graphiql=True), '/graphql')
-
+[source,python]
+----
+app.add_route(GraphQLView.as_view(schema=Schema, graphiql=True), '/graphql')
+----
 
 And it handles both HTTP and WebSockets. I'm sold.
 
