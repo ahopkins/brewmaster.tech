@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>My new development stack using Python, GraphQL and Neo4j - The Brewmaster&#x27;s Guide to the Internet</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="My new development stack using Python, GraphQL and Neo4j">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="My new development stack using Python, GraphQL and Neo4j">
+    <meta property="og:description" content="">
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link rel="stylesheet" type="text/css" href="//brewmaster.tech/themes/uno-brewmaster/assets/css/uno.css?v=1506581853642" />
+
+    <link rel="canonical" href="http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="The Brewmaster&#x27;s Guide to the Internet" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="My new development stack using Python, GraphQL and Neo4j" />
+    <meta property="og:description" content="Okay, let&amp;#8217;s sit down to create a new game. Step 1. Open text editor. Done. This is easy. Hmm &amp;#8230;&amp;#8203; Geez, maybe I should break out of my shell and try something new. I have developed MANY applications of all sorts of shapes and sizes using the" />
+    <meta property="og:url" content="http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/ahopkins/brewmaster.tech/master/images/old_computer.jpg" />
+    <meta property="article:published_time" content="2017-09-28T00:00:00.000Z" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="My new development stack using Python, GraphQL and Neo4j" />
+    <meta name="twitter:description" content="Okay, let&amp;#8217;s sit down to create a new game. Step 1. Open text editor. Done. This is easy. Hmm &amp;#8230;&amp;#8203; Geez, maybe I should break out of my shell and try something new. I have developed MANY applications of all sorts of shapes and sizes using the" />
+    <meta name="twitter:url" content="http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html" />
+    <meta name="twitter:image:src" content="https://raw.githubusercontent.com/ahopkins/brewmaster.tech/master/images/old_computer.jpg" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "The Brewmaster's Guide to the Internet",
+    "author": {
+        "@type": "Person",
+        "name": "Adam Hopkins",
+        "image": "https://avatars1.githubusercontent.com/u/166269?v=4",
+        "url": "http://brewmaster.tech/author/ahopkins/",
+        "sameAs": "https://stackoverflow.com/users/1036843/the-brewmaster",
+        "description": "the brew·mas·ter noun /bro͞o ˈmastər/"
+    },
+    "headline": "My new development stack using Python, GraphQL and Neo4j",
+    "url": "http://brewmaster.tech/2017/09/28/My-new-development-stack-using-Python-GraphQL-and-Neo4j.html",
+    "datePublished": "2017-09-28T00:00:00.000Z",
+    "image": "https://raw.githubusercontent.com/ahopkins/brewmaster.tech/master/images/old_computer.jpg",
+    "description": "Okay, let&amp;#8217;s sit down to create a new game. Step 1. Open text editor. Done. This is easy. Hmm &amp;#8230;&amp;#8203; Geez, maybe I should break out of my shell and try something new. I have developed MANY applications of all sorts of shapes and sizes using the"
+}
+    </script>
+
+    <meta name="generator" content="HubPress" />
+    <link rel="alternate" type="application/rss+xml" title="The Brewmaster&#x27;s Guide to the Internet" href="http://brewmaster.tech/rss/" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
+    
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+</head>
+<body class="post-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    <header class="panel-cover panel-cover--collapsed " style="background-image: url(https://github.com/ahopkins/brewmaster.tech/blob/master/images/cask.jpg?raw&#x3D;true)">
+      <div class="panel-main">
+    
+        <div class="panel-main__inner panel-inverted">
+        <div class="panel-main__content">
+    
+            <a href="http://brewmaster.tech/#blog" class="blog-button" title="Welcome to The Brewmaster&#x27;s Guide to the Internet"><img src="https://github.com/ahopkins/brewmaster.tech/blob/master/images/logo/logo.png?raw&#x3D;true" alt="The Brewmaster&#x27;s Guide to the Internet logo" class="panel-cover__logo logo" /></a>
+            <h1 class="panel-cover__title panel-title">by, <a href="https://github.com/ahopkins">Adam Hopkins</a></h1>
+            <span class="panel-cover__subtitle panel-subtitle">the brew·mas·ter | /bro͞o ˈmastər</span>
+            <hr class="panel-cover__divider" />
+            <p class="panel-cover__description">A lover of beer, a programmer, a lawyer. A father.  A husband.&lt;br&gt;Some dude on the Internet.</p>
+            <hr class="panel-cover__divider panel-cover__divider--secondary" />
+    
+            <div class="navigation-wrapper">
+    
+              <nav class="cover-navigation cover-navigation--primary">
+                <ul class="navigation">
+                  <li class="navigation__item"><a href="http://brewmaster.tech/#blog" title="link to The Brewmaster&#x27;s Guide to the Internet blog" class="blog-button">Blog</a></li>
+                </ul>
+              </nav>
+    
+              
+              
+              <nav class="cover-navigation navigation--social">
+                <ul class="navigation">
+              
+              
+              
+              
+              
+                  <!-- Github -->
+                  <li class="navigation__item">
+                    <a href="https://github.com/ahopkins" title="Github account">
+                      <i class='icon icon-social-github'></i>
+                      <span class="label">Github</span>
+                    </a>
+                  </li>
+                  </li>
+              
+              
+              
+              
+              
+                  <!-- Email -->
+                  <li class="navigation__item">
+                    <a href="mailto:admhpkns@gmail.com" title="Email admhpkns@gmail.com">
+                      <i class='icon icon-mail'></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+              
+                </ul>
+              </nav>
+              
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+        <div class="panel-cover--overlay"></div>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            
+
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="28 Sep 2017" class="post-meta__date date">28 Sep 2017</time> &#8226; <span class="post-meta__tags tags"></span>
+        <span class="post-meta__author author"><img src="https://avatars1.githubusercontent.com/u/166269?v&#x3D;4" alt="profile image for Adam Hopkins" class="avatar post-meta__avatar" /> by Adam Hopkins</span>
+      </div>
+      <h1 class="post-title">My new development stack using Python, GraphQL and Neo4j</h1>
+    </header>
+
+    <section class="post">
+      <div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/ahopkins/brewmaster.tech/master/images/old_computer.jpg" alt="old computer.jpg">
+</div>
+</div>
+<div class="paragraph">
+<p>Okay, let&#8217;s sit down to create a new game.</p>
+</div>
+<div class="paragraph">
+<p><em>Step 1. Open text editor.</em> Done. This is easy.</p>
+</div>
+<div class="paragraph">
+<p>Hmm &#8230;&#8203; Geez, maybe I should break out of my shell and try something new.</p>
+</div>
+<div class="paragraph">
+<p>I have developed MANY applications of all sorts of shapes and sizes using the <a href="https://www.djangoproject.com">Django Framework</a>. I am a huge supporter of it from the early days, and strongly believe it still has a long future.</p>
+</div>
+<div class="paragraph">
+<p>But, what about all these new things out there? Sure, I can jam stuff into Django, or even replace the ORM with something else. I even had started working on a package to bring <a href="https://github.com/ahopkins/elasticmanager">Elasticsearch into the Django model manager</a>.</p>
+</div>
+<div class="paragraph">
+<p>This time, I want something different. Let&#8217;s start by adding GraphQL to the stack.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My Stack
+========
+[X] GraphQL</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>How am I going to interface with the specification inside Python? Ahh, <a href="http://graphene-python.org">Graphene</a>. What an amazing package!</p>
+</div>
+<div class="paragraph">
+<p>Basically, you create a schema that looks very much like any ORM: a series of classes with fields that map to attributes. This raises a problem though.</p>
+</div>
+<div class="paragraph">
+<p>You see, when developing my <code>elasticmanager</code> package, I initially grabbed the existing Django ORM models and looped over them to generate a schema that fit inside <a href="https://elasticsearch-dsl.readthedocs.io/en/latest/"><code>elasticsearch_dsl</code></a>. The problem was that this did not give me enough flexibility. So, I took that out and created two sets of schemas: Django models, and elasticsearch datatypes. Once I added Django REST Framework into the mix, I now had a third schema! I want to avoid this problem on this project.</p>
+</div>
+<div class="paragraph">
+<p>So, I need to be able to have one defined schema, and that will be graphene.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My Stack
+========
+[X] GraphQL
+[X] Graphene</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Well, what about database you say? I thought about Postgres (my typical go to). Seeing how this is a side project and I am already taking on new technologies, maybe I should see what else is out there that I don&#8217;t know.</p>
+</div>
+<div class="paragraph">
+<p>Enter <a href="https://neo4j.com">Neo4j</a>.</p>
+</div>
+<div class="paragraph">
+<p>Neo4j is a relational graph database that comes with its own query language called cypher. Probably a topic for another post. Suffice it to say that cypher is both extremely comfortable and natural to write, and hugely powerful.</p>
+</div>
+<div class="paragraph">
+<p>Back to my stack.</p>
+</div>
+<div class="paragraph">
+<p>How am I going to interact with Neo4j? There is a really neat package that looks EXACTLY like Django ORM: <a href="http://neomodel.readthedocs.io/en/latest/"><code>neomodel</code></a>. That certainly would be an easy transition; I can already tell how I would interact with it. It looks like the code I have been writing for a long time. It does, however, seem like a little bit of a cop out though since it generates all the cypher queries for you. Do I abstract that away with neomodel? Or, take it head on and learn it.</p>
+</div>
+<div class="paragraph">
+<p>Again, this is a side project, what do you think the answer is?</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My Stack
+========
+[X] GraphQL
+[X] Graphene
+[X] Neo4j, without an ORM layer</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now my backend is starting to shape up. I am still missing, however, the key component to bind it altogether. I already decided to NOT build with Django. I suppose Flask, Bottle, or Pyramid.</p>
+</div>
+<div class="paragraph">
+<p>Hmm &#8230;&#8203; thinking about the frontend though, I REALLY want to have a tightly coupled chat application and live streaming data. It really seems like something meant for WebSockets.</p>
+</div>
+<div class="paragraph">
+<p>Since Django is out, that means the awesome <a href="https://channels.readthedocs.io/en/stable/">Django Channels</a> (my typical WebSockets interface) is out. What next?</p>
+</div>
+<div class="paragraph">
+<p>Tom Christie of DRF fame has been working on a new API project called <a href="https://discuss.apistar.org"><code>apistar</code></a>. It does not currently handle the sort of connections I am looking for, but he also worked on a project called <a href="http://www.uvicorn.org"><code>uvicorn</code></a>. That looks promising.</p>
+</div>
+<div class="paragraph">
+<p>And, there are a few frameworks I hear about utilizing asyncio, namely and <a href="http://sanic.readthedocs.io/en/latest/">Sanic</a>.</p>
+</div>
+<div class="paragraph">
+<p>Ooo, someone made a connection for <a href="https://github.com/graphql-python/sanic-graphql">Sanic with GraphQL</a>. With one line of code I can hook up GraphQL and Grapehne.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">app.add_route(GraphQLView.as_view(schema=Schema, graphiql=True), '/graphql')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And it handles both HTTP and WebSockets. I&#8217;m sold.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My Stack
+========
+[X] GraphQL
+[X] Graphene
+[X] Neo4j, without an ORM layer
+[X] Sanic
+    - HTTP
+    - WebSocket</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now &#8230;&#8203; I just need to hook this all up. That was surprisingly easy. Here is how I did it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">from sanic import Sanic
+from sanic.response import text
+from graphene import ObjectType, List, Schema, String, Field, AbstractType
+from sanic_graphql import GraphQLView
+from neo4j.v1 import GraphDatabase
+
+import copy
+
+uri = "bolt://localhost:7687"
+driver = GraphDatabase.driver(uri, auth=("neo4j", "&lt;PASSWORD&gt;"))
+
+
+def query(cypher, **kwargs):
+    with driver.session() as session:
+        with session.begin_transaction() as tx:
+            return tx.run(cypher, **kwargs)
+
+
+league_attributes = {
+    'abbreviation': String(),
+    'name': String(),
+}
+
+
+class LeagueAbstract(AbstractType):
+    def resolve_name(self, args, context, info):
+        return self['l'].get('name')
+
+    def resolve_abbreviation(self, args, context, info):
+        return self['l'].get('abbreviation')
+
+
+League = type('League', (LeagueAbstract, ObjectType), copy.deepcopy(league_attributes))
+
+
+class Query(ObjectType):
+    leagues = List(League, copy.deepcopy(league_attributes))
+    league = Field(League, copy.deepcopy(league_attributes))
+
+    def resolve_leagues(self, args, context, info):
+        abbreviation = args.get('abbreviation', None)
+        abbr = 'WHERE l.abbreviation={abbreviation}' if abbreviation is not None else ''
+        cypher = f'MATCH (l:League) {abbr} RETURN l;'
+        records = query(cypher, abbreviation=abbreviation)
+        return records
+
+    def resolve_league(self, args, context, info):
+        abbreviation = args.get('abbreviation')
+        cypher = 'MATCH (l:League) WHERE l.abbreviation={abbreviation} RETURN l;'
+        records = query(cypher, abbreviation=abbreviation)
+        return records.single()
+
+
+schema = Schema(query=Query)
+
+app = Sanic(__name__)
+
+app.add_route(GraphQLView.as_view(schema=schema, graphiql=True), '/')
+
+app.run(host="127.0.0.1", port=8000, debug=True)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is my proof of concept. Clearly this script needs to be cleaned up and abstracted away into modules.</p>
+</div>
+<div class="paragraph">
+<p>But, the point of the matter is that when taking on a side project. Step out of the comfort zone and grab a whole bunch of new tools. Because, in doing so, I have been inspired to <a href="https://github.com/ahopkins/asynccli">to build</a> <a href="https://github.com/ahopkins/sanic-jwt">several</a> <a href="https://github.com/ahopkins/merkava">new tools</a>. All three of those mini side projects has been fun. And I would have built none of them if I had stayed inside the lines.</p>
+</div>
+<div class="paragraph">
+<p>Go ahead. Build something new.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>                 ▄▄▄▄▄
+        ▀▀▀██████▄▄▄       _______________
+      ▄▄▄▄▄  █████████▄  /                 \
+     ▀▀▀▀█████▌ ▀▐▄ ▀▐█ |   Gotta go fast!  |
+   ▀▀█████▄▄ ▀██████▄██ | _________________/
+   ▀▄▄▄▄▄  ▀▀█▄▀█════█▀ |/
+        ▀▀▀▄  ▀▀███ ▀       ▄▄
+     ▄███▀▀██▄████████▄ ▄▀▀▀▀▀▀█▌
+   ██▀▄▄▄██▀▄███▀ ▀▀████      ▄██
+▄▀▀▀▄██▄▀▀▌████▒▒▒▒▒▒███     ▌▄▄▀
+▌    ▐▀████▐███▒▒▒▒▒▐██▌
+▀▄▄▄▄▀   ▀▀████▒▒▒▒▄██▀
+          ▀▀█████████▀
+        ▄▄██▀██████▀█
+      ▄██▀     ▀▀▀  █
+     ▄█             ▐▌
+ ▄▄▄▄█▌              ▀█▄▄▄▄▀▀▄
+▌     ▐                ▀▀▄▄▄▀
+ ▀▀▄▄▀</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>photo credit: wizzer2801 <a href="http://www.flickr.com/photos/61209873@N00/5357865167">Classic IBM PC Full</a> via <a href="http://photopin.com">photopin</a> <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">license</a></p>
+</div>
+    </section>
+
+  </article>
+
+  
+  <section class="post-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'brewmastertech'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </section>
+  
+
+
+
+            <footer class="footer">
+                <span class="footer__copyright">&copy; 2017. All rights reserved.</span>
+                <span class="footer__copyright"><a href="http://uno.daleanthony.com" title="link to page for Uno Ghost theme">Uno theme</a> by <a href="http://daleanthony.com" title="link to website for Dale-Anthony">Dale-Anthony</a></span>
+                <span class="footer__copyright">Proudly published with <a href="http://hubpress.io" title="link to Hubpress website">Hubpress</a></span>
+            </footer>
+        </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();
+      </script>
+
+    <script type="text/javascript" src="//brewmaster.tech/themes/uno-brewmaster/assets/js/main.js?v=1506581853642"></script>
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56325740-2', 'auto');
+    ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>
