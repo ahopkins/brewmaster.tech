@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Brewmaster's Guide to the Internet]]></title><description><![CDATA[A lover of beer, a programmer, a lawyer. A father.  A husband.<br>Some dude on the Internet.]]></description><link>http://brewmaster.tech</link><image><url>https://github.com/ahopkins/brewmaster.tech/blob/master/images/cask.jpg?raw=true</url><title>The Brewmaster&apos;s Guide to the Internet</title><link>http://brewmaster.tech</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 28 Sep 2017 06:55:55 GMT</lastBuildDate><atom:link href="http://brewmaster.tech/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[My new development stack using Python, GraphQL and Neo4j]]></title><description><![CDATA[<div class="imageblock">
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[The Brewmaster's Guide to the Internet]]></title><description><![CDATA[A lover of beer, a programmer, a lawyer. A father.  A husband.<br>Some dude on the Internet.]]></description><link>http://brewmaster.tech</link><image><url>https://github.com/ahopkins/brewmaster.tech/blob/master/images/cask.jpg?raw=true</url><title>The Brewmaster&apos;s Guide to the Internet</title><link>http://brewmaster.tech</link></image><generator>RSS for Node</generator><lastBuildDate>Thu, 28 Sep 2017 06:57:33 GMT</lastBuildDate><atom:link href="http://brewmaster.tech/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[My new development stack using Python, GraphQL and Neo4j]]></title><description><![CDATA[<div class="imageblock">
 <div class="content">
 <img src="https://raw.githubusercontent.com/ahopkins/brewmaster.tech/master/images/old_computer.jpg" alt="old computer.jpg">
 </div>
@@ -93,9 +93,9 @@
 <div class="paragraph">
 <p>Ooo, someone made a connection for <a href="https://github.com/graphql-python/sanic-graphql">Sanic with GraphQL</a>. With one line of code I can hook up GraphQL and Grapehne.</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>app.add_route(GraphQLView.as_view(schema=Schema, graphiql=True), '/graphql')</pre>
+<pre class="highlight"><code class="language-python" data-lang="python">app.add_route(GraphQLView.as_view(schema=Schema, graphiql=True), '/graphql')</code></pre>
 </div>
 </div>
 <div class="paragraph">
