@@ -5,10 +5,10 @@
     <div class="panel-main__content">
 
         {{#if @blog.logo}}
-        <a href="{{@blog.url}}/#blog" title="link to homepage for {{@blog.title}}"><img src="{{@blog.logo}}" alt="{{@blog.title}} logo" class="panel-cover__logo logo" /></a>
+        <a href="{{@blog.url}}/#blog" class="blog-button" title="Welcome to {{@blog.title}}"><img src="{{@blog.logo}}" alt="{{@blog.title}} logo" class="panel-cover__logo logo" /></a>
         {{/if}}
-        <h1 class="panel-cover__title panel-title">by, <a href="{{@blog.url}}/#blog" title="link to homepage for {{@blog.title}}">Adam Hopkins</a></h1>
-        {{!-- <span class="panel-cover__subtitle panel-subtitle">Visual Designer</span> --}}
+        <h1 class="panel-cover__title panel-title">by, <a href="https://github.com/ahopkins">Adam Hopkins</a></h1>
+        <span class="panel-cover__subtitle panel-subtitle">the brew·mas·ter | /bro͞o ˈmastər</span>
         <hr class="panel-cover__divider" />
         <p class="panel-cover__description">{{@blog.description}}</p>
         <hr class="panel-cover__divider panel-cover__divider--secondary" />
