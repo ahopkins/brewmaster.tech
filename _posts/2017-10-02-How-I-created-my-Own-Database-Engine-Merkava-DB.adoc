@@ -1,0 +1,27 @@
+// = Your Blog title
+// See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
+// :hp-image: /covers/cover.png
+// :published_at: 2019-01-31
+// :hp-tags: HubPress, Blog, Open_Source,
+// :hp-alt-title: My English Title
+= How I created my Own Database Engine: Merkava DB
+
+First you may be wondering, why create your own database? With all the many options out there, what possessed you to think this was a good idea?
+
+Well, simply put, the DB I wanted to use just did not exist.
+
+I had been working on a side project that had a need for storing short snippets of data in a time series fashion. Basically, I wanted to write a whole bunch of data, and recall it in the order it came out. Sounds kind of like a chat feed huh? Yup. That's what I needed.
+
+My project had already shirked the land of SQL relational databases. It was running a hybrid of Neo4j and Redis. Neither seemed quite up to the task that I needed. So, in steps Merkava DB. This is, more or less, the process that I took over the course of spare time I scrounged during three days.
+
+Now, it is not a fully ACID compliant, highly scalable solution to hang your hat on. But, my requirements as the backend for a chat server were small. Support fast read/write operations that reliably allow me to retrieve data in the same order that I store it.
+
+== Question #1: How do I persist to file?
+
+I suppose even before I asked this question, I needed to decide what programming language or languages I was going to use. My very first instinct was to use Python with some C extensions to drop down into C where needed for  performance gains.
+
+I looked around to see what elese was out there, thinking that some other persistable solutions could easily be taken off the shelf and applied. The python shelf module looked promising, until I saw its performance ratings. This was simply not acceptable.
+
+Looking around some more, I was highy interested in the `ujson` package. It had the added benefit of making the files human readable. However, other than in debugging, this was not a project requirement. It was plausible solution, but not the solution.
+
+Then I saw 
