@@ -6,9 +6,9 @@
 // :hp-alt-title: My English Title
 = How I created my Own Database Engine: Merkava DB
 
-First you may be wondering, why create your own database? With all the many options out there, what possessed you to think this was a good idea?
+First you may be wondering, *why* create your own database? With all the many options out there, what possessed you to think this was a good idea?
 
-Well, simply put, the DB I wanted to use just did not exist.
+Well, simply put, the DB I wanted to use just did not exist. Besides, as I said before, on side projects, it is good to extend your boundaries. It is (in part) also the same reason that I built a Javascript framework.
 
 I had been working on a side project that had a need for storing short snippets of data in a time series fashion. Basically, I wanted to write a whole bunch of data, and recall it in the order it came out. Sounds kind of like a chat feed huh? Yup. That's what I needed.
 
@@ -20,8 +20,8 @@ Now, it is not a fully ACID compliant, highly scalable solution to hang your hat
 
 I suppose even before I asked this question, I needed to decide what programming language or languages I was going to use. My very first instinct was to use Python with some C extensions to drop down into C where needed for  performance gains.
 
-I looked around to see what elese was out there, thinking that some other persistable solutions could easily be taken off the shelf and applied. The python shelf module looked promising, until I saw its performance ratings. This was simply not acceptable.
+I looked around to see what else was out there, thinking that some other persistable solutions could easily be taken off the shelf (pun intended) and applied. The Python shelf module looked promising, until I saw its performance ratings. This was simply not acceptable.
 
-Looking around some more, I was highy interested in the `ujson` package. It had the added benefit of making the files human readable. However, other than in debugging, this was not a project requirement. It was plausible solution, but not the solution.
+Looking around some more, I was highy interested in the `ujson` package. It is basically a drop in replacement for the standard library's `json` module, but WAY faster. It had the added benefit of making the files human readable. However, this was not a project requirement. I do not care about whether the files are human readable or not. Consistency and speed are the priorities. It was plausible solution, but not the solution.
 
 Then I saw 
