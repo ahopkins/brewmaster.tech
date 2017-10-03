@@ -25,3 +25,11 @@ I looked around to see what else was out there, thinking that some other persist
 Looking around some more, I was highy interested in the `ujson` package. It is basically a drop in replacement for the standard library's `json` module, but WAY faster. It had the added benefit of making the files human readable. However, this was not a project requirement. I do not care about whether the files are human readable or not. Consistency and speed are the priorities. It was plausible solution, but not the solution.
 
 Then I saw 
+
+== Question #2: How should user's interact with the DB?
+
+== What's next?
+
+=== Drivers
+
+=== Single executable install, or maybe `.deb` package
